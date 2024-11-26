@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EditorKT
 {
-    [CreateAssetMenu(fileName = "New AudioDataSO", menuName = "SO/AudioDataSO")]
+    [CreateAssetMenu(fileName = "New AudioDataSO", menuName = "SO/EditorKT/AudioDataSO")]
     public class AudioDataSO : ScriptableObject
     {
 #if UNITY_EDITOR
@@ -16,16 +16,6 @@ namespace EditorKT
         [SerializeField] private List<AudioDataList> audioData = new();
         [SerializeField] private string id;
         [SerializeField] private AudioType audioType;
-        
-        public void D()
-        {
-            var message = "";
-            foreach (var item in audioData)
-            {
-                message += item == null ? "null" : item.Data.Count + "\n";
-            }
-            Debug.Log(message);
-        }
     }
 
     [Serializable]

@@ -33,9 +33,6 @@ namespace EditorKT.Editor
             DrawAudioTypeField();
             DrawListsField();
 
-            if (GUILayout.Button("debug"))
-                _script.D();
-
             serializedObject.ApplyModifiedProperties();
             EditorUtility.SetDirty(_script);
         }
