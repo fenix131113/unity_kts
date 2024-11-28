@@ -7,8 +7,6 @@ namespace StateMachineKT.Player
     {
         private readonly PlayerInput _playerInput;
         private readonly PlayerStateMachine _playerStateMachine;
-
-        private int _currentStateIndex;
         
         [Inject]
         public PlayerStateSwitcher(PlayerInput playerInput, PlayerStateMachine playerStateMachine)
@@ -26,20 +24,15 @@ namespace StateMachineKT.Player
 
         private void SwitchStates()
         {
-            if (_currentStateIndex + 1 < _playerStateMachine.States.Count)
-                _currentStateIndex++;
-            else
-                _currentStateIndex = 0;
-
-            switch (_currentStateIndex)
+            switch (_playerStateMachine.CurrentState)
             {
-                case 0:
+                case InvisibleState:
                     _playerStateMachine.SwitchState<ShootState>();
                     break;
-                case 1:
+                case ShootState:
                     _playerStateMachine.SwitchState<RedCircleState>();
                     break;
-                case 2:
+                case RedCircleState:
                     _playerStateMachine.SwitchState<InvisibleState>();
                     break;
             }
