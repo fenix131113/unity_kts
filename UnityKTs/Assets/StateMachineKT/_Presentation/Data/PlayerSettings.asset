@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbbda6e68674df2a9885905d3455b2d, type: 3}
+  m_Name: PlayerSettings
+  m_EditorClassIdentifier: 
+  <MoveSpeed>k__BackingField: 5
+  <AttackKey>k__BackingField: 101
+  <SwitchStateKey>k__BackingField: 13
+  <PauseKey>k__BackingField: 32
+  <FinalKey>k__BackingField: 27

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bba041f547a44108bf3c26773e8d748, type: 3}
   m_Name: GravitationalAttractionConstData
   m_EditorClassIdentifier: 
-  <Formula>k__BackingField: F = Gm1m2/r2
+  <Formula>k__BackingField: F = Gm<sub>1</sub>m<sub>2</sub>/r<sup>2</sup>
   <FormulaType>k__BackingField: 2
   <Values>k__BackingField:
   - m<sub>1
