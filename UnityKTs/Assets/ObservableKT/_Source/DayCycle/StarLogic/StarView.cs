@@ -4,6 +4,9 @@ namespace ObservableKT._Source.DayCycle.StarLogic
 {
     public class StarView : MonoBehaviour
     {
+        private const float FADE_DOWN_OFFSET = 0.3f;
+        private const float FADE_UP_OFFSET = 0.4f;
+        
         [SerializeField] private SpriteRenderer starRenderer;
 
         private Star _star;
@@ -20,8 +23,8 @@ namespace ObservableKT._Source.DayCycle.StarLogic
         {
             starRenderer.color = progress switch
             {
-                <= 0.3f => new Color(255, 255, 255, Mathf.Clamp(0.3f - progress / 0.3f, 0, 1f)),
-                >= 0.4f => new Color(255, 255, 255, Mathf.Clamp((progress - 0.4f) / 0.6f, 0, 1f)),
+                <= FADE_DOWN_OFFSET => new Color(255, 255, 255, Mathf.Clamp(FADE_DOWN_OFFSET - progress / FADE_DOWN_OFFSET, 0, 1f)),
+                >= FADE_UP_OFFSET => new Color(255, 255, 255, Mathf.Clamp((progress - FADE_UP_OFFSET) / (1 - FADE_UP_OFFSET), 0, 1f)),
                 _ => starRenderer.color
             };
         }
