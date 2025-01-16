@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OCP._Source.Attack.Strategies;
 using UnityEngine;
 
@@ -6,12 +7,8 @@ namespace OCP._Source.Attack.View
 {
     public class AttackButtonsContainer : MonoBehaviour
     {
-        [SerializeField] private AttackTypeButton straightAttackButton;
-        [SerializeField] private AttackTypeButton rangeAttackButton;
-        [SerializeField] private AttackTypeButton braidAttackButton;
-        [SerializeField] private StraightStrategy straightStrategy;
-        [SerializeField] private RangeStrategy rangeStrategy;
-        [SerializeField] private BraidStrategy braidStrategy;
+        [SerializeField] private List<AttackTypeButton> buttons = new();
+        [SerializeField] private Animator attackAnimator;
 
         private AttackTypeButton _currentButton;
         private AttackPerformer _attackPerformer;
@@ -30,9 +27,9 @@ namespace OCP._Source.Attack.View
 
             IAttackStrategy strategy = attackType switch
             {
-                AttackType.STRAIGHT => straightStrategy,
-                AttackType.RANGE => rangeStrategy,
-                AttackType.BRAID => braidStrategy,
+                AttackType.STRAIGHT => new StraightStrategy(attackAnimator),
+                AttackType.RANGE => new RangeStrategy(attackAnimator),
+                AttackType.BRAID => new BraidStrategy(attackAnimator),
                 _ => throw new NotImplementedException()
             };
             
@@ -41,16 +38,14 @@ namespace OCP._Source.Attack.View
 
         private void Bind()
         {
-            straightAttackButton.OnButtonClicked += SelectCurrentButton;
-            rangeAttackButton.OnButtonClicked += SelectCurrentButton;
-            braidAttackButton.OnButtonClicked += SelectCurrentButton;
+            foreach (var attackTypeButton in buttons)
+                attackTypeButton.OnButtonClicked += SelectCurrentButton;
         }
 
         private void Expose()
         {
-            straightAttackButton.OnButtonClicked -= SelectCurrentButton;
-            rangeAttackButton.OnButtonClicked -= SelectCurrentButton;
-            braidAttackButton.OnButtonClicked -= SelectCurrentButton;
+            foreach (var attackTypeButton in buttons)
+                attackTypeButton.OnButtonClicked -= SelectCurrentButton;
         }
     }
 }

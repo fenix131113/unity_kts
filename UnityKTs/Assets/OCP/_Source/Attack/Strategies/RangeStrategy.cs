@@ -2,15 +2,16 @@
 
 namespace OCP._Source.Attack.Strategies
 {
-    public class RangeStrategy : MonoBehaviour, IAttackStrategy
+    public class RangeStrategy : IAttackStrategy
     {
-        [SerializeField] private Animator animator;
-        
+        private readonly Animator _animator;
         private readonly int rangeAttackHash = Animator.StringToHash("Range");
-        
+
+        public RangeStrategy(Animator anim) => _animator = anim;
+
         public void Attack()
         {
-            animator.SetTrigger(rangeAttackHash);
+            _animator.SetTrigger(rangeAttackHash);
         }
     }
 }

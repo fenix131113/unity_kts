@@ -2,15 +2,16 @@
 
 namespace OCP._Source.Attack.Strategies
 {
-    public class StraightStrategy : MonoBehaviour, IAttackStrategy
+    public class StraightStrategy : IAttackStrategy
     {
-        [SerializeField] private Animator animator;
-        
+        private readonly Animator _animator;
         private readonly int straightAttackHash = Animator.StringToHash("Straight");
+        
+        public StraightStrategy(Animator anim) => _animator = anim;
         
         public void Attack()
         {
-            animator.SetTrigger(straightAttackHash);
+            _animator.SetTrigger(straightAttackHash);
         }
     }
 }

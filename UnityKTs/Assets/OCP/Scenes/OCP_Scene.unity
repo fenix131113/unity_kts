@@ -496,9 +496,6 @@ GameObject:
   m_Component:
   - component: {fileID: 616621208}
   - component: {fileID: 616621209}
-  - component: {fileID: 616621212}
-  - component: {fileID: 616621211}
-  - component: {fileID: 616621210}
   m_Layer: 0
   m_Name: ItemPivot
   m_TagString: Untagged
@@ -545,45 +542,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &616621210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616621207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e28608ba8a804dafabb0f22f02239706, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 616621209}
---- !u!114 &616621211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616621207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c596afe475e84d80aeb9fcaa851b3f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 616621209}
---- !u!114 &616621212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616621207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 227457a7a8f44491927ba43aa5a2a66b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 616621209}
 --- !u!1 &898784785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,12 +1023,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2103d26897a04650bdff8cdc8bbfa5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  straightAttackButton: {fileID: 1405517325716950867}
-  rangeAttackButton: {fileID: 1063266958}
-  braidAttackButton: {fileID: 354020396}
-  straightStrategy: {fileID: 616621212}
-  rangeStrategy: {fileID: 616621211}
-  braidStrategy: {fileID: 616621210}
+  buttons:
+  - {fileID: 1405517325716950867}
+  - {fileID: 1063266958}
+  - {fileID: 354020396}
+  attackAnimator: {fileID: 616621209}
 --- !u!1001 &1405517325716950866
 PrefabInstance:
   m_ObjectHideFlags: 0

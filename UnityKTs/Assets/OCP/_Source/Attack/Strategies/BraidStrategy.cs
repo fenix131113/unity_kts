@@ -2,15 +2,17 @@
 
 namespace OCP._Source.Attack.Strategies
 {
-    public class BraidStrategy : MonoBehaviour, IAttackStrategy
+    public class BraidStrategy : IAttackStrategy
     {
-        [SerializeField] private Animator animator;
+        private readonly Animator _animator;
         
         private readonly int braidAttackHash = Animator.StringToHash("Braid");
-        
+
+        public BraidStrategy(Animator anim) => _animator = anim;
+
         public void Attack()
         {
-            animator.SetTrigger(braidAttackHash);
+            _animator.SetTrigger(braidAttackHash);
         }
     }
 }
