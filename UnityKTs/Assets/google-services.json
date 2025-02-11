@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "880241252893",
+    "firebase_url": "https://fir-kt-3b60a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fir-kt-3b60a",
+    "storage_bucket": "fir-kt-3b60a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880241252893:android:78f8a6257628df533584f4",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.UnityKTs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2lS8ZDkD9NFjMYwlBafd8oJsRQYHwdJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
