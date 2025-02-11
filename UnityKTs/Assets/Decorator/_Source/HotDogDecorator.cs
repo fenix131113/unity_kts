@@ -3,11 +3,9 @@
     public abstract class HotDogDecorator : HotDog
     {
         protected readonly HotDog HotDog;
-        protected readonly HotDogDecoratorDataSO HotDogDecoratorData;
         
-        public HotDogDecorator(HotDogDecoratorDataSO hotDogDecoratorData, HotDog hotDog) : base(hotDog.GetName(), hotDog.GetWeight(), hotDog.GetCost())
+        public HotDogDecorator(HotDogDecoratorDataSO hotDogDecoratorData, HotDog hotDog) : base(hotDogDecoratorData.Postfix, hotDogDecoratorData.Weight, hotDogDecoratorData.Cost)
         {
-            HotDogDecoratorData = hotDogDecoratorData;
             HotDog = hotDog;
         }
     }

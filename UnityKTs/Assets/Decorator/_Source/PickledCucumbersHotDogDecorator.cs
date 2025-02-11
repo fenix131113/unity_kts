@@ -6,9 +6,9 @@
         {
         }
 
-        public override string GetName() => HotDog.GetName() + HotDogDecoratorData.Postfix;
+        public override string GetName() => HotDog.GetName() + HotDogName;
 
-        public override int GetCost() => HotDog.GetCost() + HotDogDecoratorData.Cost;
-        public override int GetWeight() => HotDog.GetWeight() + HotDogDecoratorData.Weight;
+        public override int GetCost() => HotDog.GetCost() + Cost;
+        public override int GetWeight() => HotDog.GetWeight() + Weight;
     }
 }
