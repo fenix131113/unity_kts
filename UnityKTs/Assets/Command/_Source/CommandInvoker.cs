@@ -42,6 +42,7 @@ namespace Command
                 if (_commandsHistory.Count > MAX_UNDO_COMMANDS)
                     _commandsHistory.RemoveAt(0);
             }
+            _commandsToInvoke.Clear();
         }
 
         public void Undo()
