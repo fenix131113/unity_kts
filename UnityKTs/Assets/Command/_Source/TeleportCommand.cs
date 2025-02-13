@@ -8,7 +8,7 @@ namespace Command
         private readonly Character _teleportTarget;
         private readonly List<Vector3> _commandHistory = new();
 
-        public TeleportCommand(Character teleportTarget) => _teleportTarget = teleportTarget;
+        public  TeleportCommand(Character teleportTarget) => _teleportTarget = teleportTarget;
 
         public void Execute(Vector3 position)
         {
