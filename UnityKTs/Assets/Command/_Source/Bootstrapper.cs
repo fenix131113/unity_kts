@@ -12,7 +12,7 @@ namespace Command
         
         private void Awake()
         {
-            _commandInvoker = new CommandInvoker(inputListener, character, spawner);
+            _commandInvoker = new CommandInvoker(inputListener, new TeleportCommand(character), new SpawnCommand(spawner));
         }
     }
 }

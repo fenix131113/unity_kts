@@ -13,11 +13,11 @@ namespace Command
         private readonly TeleportCommand _teleportCommand;
         private readonly SpawnCommand _spawnCommand;
 
-        public CommandInvoker(ICommandActions commandsActions, Character character, ObjectSpawner spawner)
+        public CommandInvoker(ICommandActions commandsActions, TeleportCommand teleportCommand, SpawnCommand spawnCommand)
         {
             _commandsActions = commandsActions;
-            _teleportCommand = new TeleportCommand(character);
-            _spawnCommand = new SpawnCommand(spawner);
+            _teleportCommand = teleportCommand;
+            _spawnCommand = spawnCommand;
             Bind();
         }
 
