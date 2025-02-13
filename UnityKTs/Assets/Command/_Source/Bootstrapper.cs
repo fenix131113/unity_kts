@@ -12,9 +12,7 @@ namespace Command
         
         private void Awake()
         {
-            _commandInvoker = new CommandInvoker(inputListener);
-            character.Init(inputListener, _commandInvoker);
-            spawner.Init(inputListener, _commandInvoker);
+            _commandInvoker = new CommandInvoker(inputListener, character, spawner);
         }
     }
 }

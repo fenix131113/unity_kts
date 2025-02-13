@@ -7,20 +7,37 @@ namespace Command
     {
         public const int MAX_UNDO_COMMANDS = 10;
         private readonly List<ICommand> _commandsHistory = new();
-        private readonly InputListener _inputListener;
+        private readonly ICommandActions _commandsActions;
         private readonly List<KeyValuePair<ICommand, Vector3>> _commandsToInvoke = new();
 
-        public CommandInvoker(InputListener inputListener)
+        private readonly TeleportCommand _teleportCommand;
+        private readonly SpawnCommand _spawnCommand;
+
+        public CommandInvoker(ICommandActions commandsActions, Character character, ObjectSpawner spawner)
         {
-            _inputListener = inputListener;
+            _commandsActions = commandsActions;
+            _teleportCommand = new TeleportCommand(character);
+            _spawnCommand = new SpawnCommand(spawner);
             Bind();
         }
 
         ~CommandInvoker() => Expose();
 
+        private void InvokeSpawnCommand()
+        {
+            Physics.Raycast(Camera.main!.ScreenPointToRay(Input.mousePosition), out var hit);
+            Execute(_spawnCommand, hit.point);
+        }
+
+        private void InvokeTeleportCommand()
+        {
+            Physics.Raycast(Camera.main!.ScreenPointToRay(Input.mousePosition), out var hit);
+            Execute(_teleportCommand, hit.point);
+        }
+
         public void Execute(ICommand command, Vector3 position)
         {
-            if (command is TeleportCommand)
+            if (command is SpawnCommand)
                 _commandsToInvoke.Add(new KeyValuePair<ICommand, Vector3>(command, position));
             else
             {
@@ -42,6 +59,7 @@ namespace Command
                 if (_commandsHistory.Count > MAX_UNDO_COMMANDS)
                     _commandsHistory.RemoveAt(0);
             }
+
             _commandsToInvoke.Clear();
         }
 
@@ -56,14 +74,18 @@ namespace Command
 
         private void Bind()
         {
-            _inputListener.OnUndoClicked += Undo;
-            _inputListener.OnExecuteAllClicked += ExecuteAll;
+            _commandsActions.OnTeleportClicked += InvokeTeleportCommand;
+            _commandsActions.OnSpawnClicked += InvokeSpawnCommand;
+            _commandsActions.OnExecuteAllClicked += ExecuteAll;
+            _commandsActions.OnUndoClicked += Undo;
         }
 
         private void Expose()
         {
-            _inputListener.OnUndoClicked -= Undo;
-            _inputListener.OnExecuteAllClicked -= ExecuteAll;
+            _commandsActions.OnTeleportClicked -= InvokeTeleportCommand;
+            _commandsActions.OnSpawnClicked -= InvokeSpawnCommand;
+            _commandsActions.OnExecuteAllClicked -= ExecuteAll;
+            _commandsActions.OnUndoClicked -= Undo;
         }
     }
 }

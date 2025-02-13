@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Command
 {
-    public class InputListener : MonoBehaviour
+    public class InputListener : MonoBehaviour, ICommandActions
     {
         public event Action OnSpawnClicked;
         public event Action OnTeleportClicked;

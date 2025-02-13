@@ -5,14 +5,17 @@ namespace Command
 {
     public class SpawnCommand : ICommand
     {
-        private readonly GameObject _spawnTarget;
         private readonly List<GameObject> _commandHistory = new();
+        private readonly ObjectSpawner _spawner;
 
-        public SpawnCommand(GameObject spawnTarget) => _spawnTarget = spawnTarget;
+        public SpawnCommand(ObjectSpawner spawner)
+        {
+            _spawner = spawner;
+        }
 
         public void Execute(Vector3 position)
         {
-            _commandHistory.Add(Object.Instantiate(_spawnTarget, position, Quaternion.identity));
+            _commandHistory.Add(_spawner.SpawnObject(position));
             
             if (_commandHistory.Count > CommandInvoker.MAX_UNDO_COMMANDS)
                 _commandHistory.RemoveAt(0);
