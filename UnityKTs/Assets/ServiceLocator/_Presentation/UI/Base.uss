@@ -1,0 +1,26 @@
+.button_default {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(67, 67, 67);
+    border-right-color: rgb(67, 67, 67);
+    border-top-color: rgb(67, 67, 67);
+    border-bottom-color: rgb(67, 67, 67);
+    transition-property: scale;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+}
+
+.button_default:hover {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(200, 200, 200);
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+}

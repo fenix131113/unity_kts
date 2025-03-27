@@ -29,7 +29,7 @@ namespace StateMachineKT.Player
 
         private void Move(Vector2 input)
         {
-            _rb.velocity = input.normalized * _playerSettings.MoveSpeed;
+            _rb.linearVelocity = input.normalized * _playerSettings.MoveSpeed;
         }
         
         private void Bind()

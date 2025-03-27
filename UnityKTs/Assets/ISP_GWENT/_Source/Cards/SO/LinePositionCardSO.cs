@@ -17,5 +17,10 @@ namespace ISP_GWENT.Cards.SO
         {
             Debug.Log($"Used {powerScores} power scores!");
         }
+
+        public override void Use()
+        {
+            UsePowerScores();
+        }
     }
 }

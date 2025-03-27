@@ -9,5 +9,10 @@ namespace ISP_GWENT.Cards.SO
         {
             Debug.Log($"{CardName} use ultimate!");
         }
+
+        public override void Use()
+        {
+            UseUltimate();
+        }
     }
 }

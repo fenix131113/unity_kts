@@ -2,6 +2,6 @@
 {
     public interface IWeatherCard
     {
-        public void UserWeatherEffect();
+        public void UseWeatherEffect();
     }
 }

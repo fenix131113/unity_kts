@@ -15,5 +15,10 @@ namespace ISP_GWENT.Cards
         {
             Debug.Log($"{CardName} use special type {specialType}!");
         }
+
+        public override void Use()
+        {
+            SpecialMove();
+        }
     }
 }
