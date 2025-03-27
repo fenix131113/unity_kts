@@ -8,7 +8,9 @@ namespace Command
         private readonly ICommandActions _commandsActions;
         private readonly TeleportCommand _teleportCommand;
         private readonly SpawnCommand _spawnCommand;
-
+        
+        
+        // Вид зависимости: конструктор
         public InvokerHandler(CommandInvoker invoker, ICommandActions commandsActions,TeleportCommand teleportCommand, SpawnCommand spawnCommand)
         {
             _invoker = invoker;

@@ -8,6 +8,7 @@ namespace Command
         private readonly List<GameObject> _commandHistory = new();
         private readonly ObjectSpawner _spawner;
 
+        //Вид зависимости: конструктор
         public SpawnCommand(ObjectSpawner spawner)
         {
             _spawner = spawner;
