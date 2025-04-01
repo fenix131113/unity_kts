@@ -18,6 +18,9 @@ namespace ServiceLocator.Ui
             _currentState.Enter();
         }
 
-        public void RegisterState(IUiState state) => _uiStates.TryAdd(state.GetType(), state);
+        public void RegisterState(IUiState state)
+        {
+            _uiStates.TryAdd(state.GetType(), state);
+        }
     }
 }
