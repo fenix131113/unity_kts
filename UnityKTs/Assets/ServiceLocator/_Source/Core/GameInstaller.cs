@@ -18,7 +18,7 @@ namespace ServiceLocator.Core
             Container.Bind<MenuView>().FromInstance(menuView).AsSingle();
             
             Container.Bind<Score>().AsSingle();
-            Container.BindInterfacesAndSelfTo<PlayerPrefsSaver>().AsSingle();
+            Container.BindInterfacesTo<PlayerPrefsSaver>().AsSingle();
 
             Container.BindInterfacesTo<UiStatesRegister>().AsSingle().NonLazy();
             Container.Bind<UiSwitcher>().AsSingle();
