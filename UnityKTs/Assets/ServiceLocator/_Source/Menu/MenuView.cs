@@ -2,6 +2,7 @@ using ServiceLocator.SaveSystem;
 using ServiceLocator.Ui;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Zenject;
 
 namespace ServiceLocator.Menu
 {
@@ -17,7 +18,8 @@ namespace ServiceLocator.Menu
         private Label _counterLabel;
         private ISaver _saver;
 
-        public void Init(UiSwitcher uiSwitcher, Score score, ISaver saver)
+        [Inject]
+        public void Construct(UiSwitcher uiSwitcher, Score score, ISaver saver)
         {
             _uiSwitcher = uiSwitcher;
             _score = score;

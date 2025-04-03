@@ -1,22 +1,16 @@
-﻿using UnityEngine;
-
-namespace ServiceLocator
+﻿namespace ServiceLocator
 {
     public class SoundPlayer : ISoundPlayer
     {
-        private readonly AudioSource _source;
-        private readonly AudioClip _openSound;
-        private readonly AudioClip _closeSound;
+        private readonly SoundPlayerSetup _settings;
         
-        public SoundPlayer(AudioSource source, AudioClip openSound, AudioClip closeSound)
+        public SoundPlayer(SoundPlayerSetup setup)
         {
-            _source = source;
-            _openSound = openSound;
-            _closeSound = closeSound;
+            _settings = setup;
         }
 
-        public void PlayOpenSound() => _source.PlayOneShot(_openSound);
+        public void PlayOpenSound() => _settings.AudioSource.PlayOneShot(_settings.OpenPanelSound);
 
-        public void PlayCloseSound() => _source.PlayOneShot(_closeSound);
+        public void PlayCloseSound() => _settings.AudioSource.PlayOneShot(_settings.ClosePanelSound);
     }
 }
