@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Addressables/Addressables.unity
-    guid: d1cfb6a1c199b05408b2905fd131308a
+    path: Assets/Pinball/_Presentation/Pinball.unity
+    guid: 2eca480205c683f468b7a35d2e871a5b
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 894f5aee4f37bd5408448b6b6e88b18c, type: 2}
   m_UseUCBPForAssetBundles: 0

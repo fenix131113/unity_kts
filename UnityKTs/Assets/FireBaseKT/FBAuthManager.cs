@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Firebase;
-using Firebase.Auth;
-using Firebase.Database;
+//using Firebase;
+//using Firebase.Auth;
+//using Firebase.Database;
 using TMPro;
 using UnityEngine;
 
@@ -15,8 +15,8 @@ namespace FireBaseKT
         [SerializeField] private TMP_InputField nameInputField;
         [SerializeField] private TMP_InputField ageInputField;
 
-        private DatabaseReference _dbref;
-        private FirebaseAuth _auth;
+        //private DatabaseReference _dbref;
+        //private FirebaseAuth _auth;
 
         private void Awake()
         {
@@ -25,13 +25,13 @@ namespace FireBaseKT
 
         void InitializeFirebase()
         {
-            _auth = FirebaseAuth.DefaultInstance;
-            _dbref = FirebaseDatabase.DefaultInstance.RootReference;
+            //_auth = FirebaseAuth.DefaultInstance;
+            //_dbref = FirebaseDatabase.DefaultInstance.RootReference;
         }
 
         public async void RegisterUser()
         {
-            var email = mailInputField.text;
+            /*var email = mailInputField.text;
             var password = passwordInputField.text;
             var nameInput = nameInputField.text;
             var age = ageInputField.text;
@@ -65,7 +65,7 @@ namespace FireBaseKT
 
                 Debug.Log(mes + " - " + error);
                 throw;
-            }
+            }*/
         }
 
         private async Task SaveUserData(string userid, string userName, int age)
@@ -74,7 +74,7 @@ namespace FireBaseKT
             {
                 var userData = new User(userName, age);
 
-                await _dbref.Child("users").Child(userid).SetRawJsonValueAsync(JsonUtility.ToJson(userData));
+                //await _dbref.Child("users").Child(userid).SetRawJsonValueAsync(JsonUtility.ToJson(userData));
             }
             catch (Exception e)
             {
@@ -83,20 +83,20 @@ namespace FireBaseKT
             }
         }
     }
-}
 
-public class User
-{
-    public string name;
-    public int age;
-    public int damage;
-    public int hp;
-
-    public User(string name, int age, int damage = 0, int hp = 0)
+    public class User
     {
-        this.name = name;
-        this.age = age;
-        this.damage = damage;
-        this.hp = hp;
+        public string name;
+        public int age;
+        public int damage;
+        public int hp;
+
+        public User(string name, int age, int damage = 0, int hp = 0)
+        {
+            this.name = name;
+            this.age = age;
+            this.damage = damage;
+            this.hp = hp;
+        }
     }
 }
